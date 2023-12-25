@@ -50,7 +50,8 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/profile',
-                element: <Profile></Profile>
+                element: <Profile></Profile>,
+                loader: () => fetch('http://localhost:5000/addCart')
             }
 
         ]

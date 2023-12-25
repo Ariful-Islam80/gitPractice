@@ -15,13 +15,18 @@ import { IoIosArrowForward } from "react-icons/io";
 
 const Foods = () => {
     const { count } = useLoaderData()
-    console.log(count);
+    // console.log(count);
+    const [food, setFood] = useState([])
     const [itemsPerPage, setItemsPerPage] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
     const numberOfPages = Math.ceil(count / itemsPerPage)
 
     useEffect(() => {
         fetch(`http://localhost:5000/foods?page=${currentPage}&skip=${itemsPerPage}`)
+            .then(res => res.json())
+            .then((data) => {
+                setFood(data)
+            })
     }, [currentPage, itemsPerPage])
 
 
@@ -33,7 +38,7 @@ const Foods = () => {
 
     //     second type pagination >>>>>>>
     const pages = [];
-    for (let i = 1; i < numberOfPages; i++) {
+    for (let i = 0; i < numberOfPages; i++) {
         pages.push(i)
     }
     // console.log(pages);
@@ -64,10 +69,11 @@ const Foods = () => {
     if (error) {
         return <h1 className="text-2xl lg:text-6xl text-center text-red-700">Empty Data</h1>
     }
-    let filterData = data
+    let filterData = food
     if (search !== "") {
-        filterData = data.filter(item => item.category.toLowerCase().includes(search.toLowerCase()))
+        filterData = food.filter(item => item.category.toLowerCase().includes(search.toLowerCase()))
     }
+
     // console.log(search);
     return (
         <>
@@ -90,7 +96,7 @@ const Foods = () => {
                     pages.map(page => <button
                         className="lg:btn md:btn hover:text-white hover:bg-gray-700 mr-2"
                         onClick={() => setCurrentPage(page)}
-                        key={page}>{page}</button>)
+                        key={page}>{page + 1}</button>)
                 }
                 <select onChange={handleItemsPerPage} className=" hover:text-white hover:bg-gray-700 mr-2" name="" value={itemsPerPage} id="">
                     <option value="10">10</option>
