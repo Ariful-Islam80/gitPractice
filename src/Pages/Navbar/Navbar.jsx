@@ -12,8 +12,7 @@ const Navbar = () => {
         <li className="text-3xl"><Link to="/foods">All Foods</Link></li>
         <li className="text-3xl"><Link to="/blog">Blog</Link></li>
         <li className="text-3xl"> <Link to="/about">About</Link> </li>
-        {user?.email==='miarif4321@gmail.com'?
-            <li className="text-3xl"> <Link to="/addProduct">Add Product</Link> </li>:<></>}
+        <li className="text-3xl"> <Link to="/addProduct">Add Product</Link> </li>
 
     </>
 

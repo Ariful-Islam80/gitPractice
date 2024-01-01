@@ -1,13 +1,17 @@
-// import axios from "axios";
+
 import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useContext } from "react";
 const CheckOut = () => {
+    const { user } = useContext(AuthContext);
     const food = useLoaderData();
     const { name, img, category, price, country, description
     } = food;
 
 
     const handleAddToCart = () => {
+
         const addCartData = { name, price, img, quantity: 0 };
         console.log(addCartData);
         Swal.fire({
@@ -22,8 +26,8 @@ const CheckOut = () => {
             if (result.isConfirmed) {
 
                 addCartData.quantity += 1
-                
-                fetch("http://localhost:5000/addCart", {
+
+                fetch("http://localhost:5000/newFoods", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
@@ -150,12 +154,19 @@ const CheckOut = () => {
                                             Add to Cart
                                         </button>
                                     </div>
-                                    <div className="w-full px-4 mb-4 lg:mb-0 lg:w-1/2">
-                                        <button
-                                            className="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300">
+
+                                   
+                                        < div className="w-full px-4 mb-4 lg:mb-0 lg:w-1/2">
+
+                                        <button className="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300">
                                             Update
                                         </button>
+
                                     </div>
+                                    {/* <Link to={`/updateFoods/`} className="w-full flex items-center justify-center gap-2 lg:gap-4  bg-teal-500 dark:bg-gray-600 text-white py-2 px-4 rounded-md font-bold hover:bg-gray-800 dark:hover:bg-gray-700">
+
+                                        Update</Link> */}
+
                                 </div>
                             </div>
                         </div>
@@ -165,7 +176,7 @@ const CheckOut = () => {
                     </p>
                 </div>
 
-            </section>
+            </section >
 
         </>
     );

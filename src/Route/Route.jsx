@@ -10,8 +10,8 @@ import Profile from "../Pages/Profile/Profile";
 import CheckOut from "../Pages/CheckOut/CheckOut";
 import PrivateRoute from "./PrivateRoute";
 import AddProduct from "../Pages/AddProduct/AddProduct";
-import AdminRoute from "./AdminRoute";
 import Features from "../Pages/Features/Features";
+import UpdateFoods from "../Pages/UpdateFoods/UpdateFoods";
 
 
 
@@ -59,7 +59,12 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/addProduct',
-                element:<AdminRoute><AddProduct></AddProduct></AdminRoute>
+                element:<AddProduct></AddProduct>
+            },
+            {
+                path: 'updateFoods',
+                element: <UpdateFoods></UpdateFoods>,
+                loader: ({ params }) => fetch(`http://localhost:5000/newFoods/${params.id}`)
             },
             {
                 path: '/feature',
