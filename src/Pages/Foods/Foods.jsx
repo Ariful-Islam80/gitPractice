@@ -62,7 +62,7 @@ const Foods = () => {
     }
 
     const [search, setSearch] = useState("")
-    const { data, loading, error } = useFetch()
+    const { loading, error } = useFetch()
     if (loading) {
         return <Skeleton></Skeleton>
     }
@@ -82,7 +82,7 @@ const Foods = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-6 md:px-36 py-4 mx-auto">
                 {
                     filterData?.map(product => <FoodCard
-                        key={product._id}
+                        key={product?._id}
                         product={product}
                     ></FoodCard>)
                 }
@@ -106,7 +106,7 @@ const Foods = () => {
                 <button onClick={handleNextPage} className="flex items-center btn hover:text-white hover:bg-gray-700 mr-1">
                     <p>Next</p><IoIosArrowForward /></button>
 
-            </div > :     <div className="flex justify-center items-center flex-col sad-page">
+            </div > : <div className="flex justify-center items-center flex-col sad-page">
                 {/* Displaying the sad image */}
                 <img src="../../../public/sorry (1).png" alt="No Data Founded" />
 

@@ -17,7 +17,7 @@ const AddProduct = () => {
         const Card = { name, image, brandName, price, type, rating, description }
 
 
-        fetch('http://localhost:5000/newFoods', {
+        fetch('http://localhost:5000/foods', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
+
 import MyAddFoods from "../MyAddFoods/MyAddFoods";
 import MyOrderFoods from "../MyOrderFoods/MyOrderFoods";
 // 
@@ -11,43 +12,16 @@ import MyOrderFoods from "../MyOrderFoods/MyOrderFoods";
 
 const Profile = () => {
     const [activeTab, setActiveTab] = useState('app');
+    const user = useContext(AuthContext)
     const handleTabClick = (tabId) => {
         setActiveTab(tabId);
       };
     
-    // const myCartData = useLoaderData()
-    // const [refresh, setRefresh] = useState(myCartData);
-
-
-    // const user = useContext(AuthContext)
-    // const handleDelete = (_id) => {
-
-    //     fetch(`http://localhost:5000/addCart/${_id}`, {
-    //         method: 'DELETE'
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //             if (data.deletedCount > 0) {
-    //                 Swal.fire(
-    //                     'Deleted!',
-    //                     'Your food has been deleted.',
-    //                     'success'
-    //                 )
-    //                 const remaining = refresh.filter(items => items._id !== _id);
-    //                 setRefresh(remaining);
-    //             }
-    //         })
-    // }
-
-
-
-
 
     return (
         <>
             <section className="flex items-center bg-stone-200  font-poppins dark:bg-gray-700 ">
-                <div className="justify-center flex-1 px-4 py-6 mx-auto max-w-7xl lg:py-4 md:px-6">
+                <div className="justify-center flex-1 px-4 py-6 mx-auto max-w-full lg:py-4 md:px-6">
 
                     <div className=" mx-auto mb-4 bg-white rounded-lg shadow-md p-5">
                         <img className="w-32 h-32 rounded-full mx-auto" src={user?.user?.photoURL} alt="Profile picture" />

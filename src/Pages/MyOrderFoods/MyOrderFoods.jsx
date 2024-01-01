@@ -1,6 +1,5 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { AuthContext } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import { MdDelete } from "react-icons/md";
 
@@ -8,8 +7,6 @@ const MyOrderFoods = () => {
     const myCartData = useLoaderData()
     const [refresh, setRefresh] = useState(myCartData);
 
-
-    const user = useContext(AuthContext)
     const handleDelete = (_id) => {
 
         fetch(`http://localhost:5000/addCart/${_id}`, {
