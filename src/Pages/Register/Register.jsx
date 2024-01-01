@@ -5,7 +5,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Register = () => {
     const navigate = useNavigate()
-    const { createUser } = useContext(AuthContext)
+    const { createUser,updateUser } = useContext(AuthContext)
 
     const [registerError, setRegisterError] = useState('')
     const [registerSuccess, setRegisterSuccess] = useState('')
@@ -19,7 +19,7 @@ const Register = () => {
         const name = ev.target.name.value;
         const photo = ev.target.photo.value;
         const user = { email, password, name, photo }
-        console.log(user);
+        // console.log(name);
         // create user in firebase
 
         // reset error and success
@@ -41,6 +41,7 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
+                updateUser(name, photo)
                 ev.target.reset()
                 setRegisterSuccess('User Register Successfully')
                 navigate('/logIn')
@@ -51,6 +52,7 @@ const Register = () => {
                 setRegisterError(error.message)
             })
         // create user
+       
 
     }
     return (

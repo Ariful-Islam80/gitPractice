@@ -89,7 +89,7 @@ const Foods = () => {
             </div>
 
 
-            <div className="flex justify-center">
+            {filterData.length > 0 ? <div className="flex justify-center">
                 <button onClick={handlePreviousPage} className="flex items-center btn hover:text-white hover:bg-gray-700 mr-1"><IoIosArrowBack /><p>Previous</p></button>
 
                 {
@@ -106,7 +106,11 @@ const Foods = () => {
                 <button onClick={handleNextPage} className="flex items-center btn hover:text-white hover:bg-gray-700 mr-1">
                     <p>Next</p><IoIosArrowForward /></button>
 
-            </div >
+            </div > :     <div className="flex justify-center items-center flex-col sad-page">
+                {/* Displaying the sad image */}
+                <img src="../../../public/sorry (1).png" alt="No Data Founded" />
+
+            </div>}
 
         </>
     );

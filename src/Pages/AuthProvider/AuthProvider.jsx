@@ -1,4 +1,4 @@
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/Firebase.config";
 import axios from "axios";
@@ -17,6 +17,13 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
 
+    }
+    const updateUser = (name, photo) => {
+        // console.log(name,photo);
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL:photo
+        })
     }
 
     const signInUser = (email, password) => {
@@ -46,6 +53,7 @@ const AuthProvider = ({ children }) => {
             const userEmail = currentUser?.email || user?.email;
             const loggedUser = { email: userEmail }
             setUser(currentUser)
+            setLoading(false)
             console.log('current User', currentUser);
             // if user exists then issue a token
             if (currentUser) {
@@ -55,18 +63,18 @@ const AuthProvider = ({ children }) => {
                     })
             } else {
                 axios.post('http://localhost:5000/logout', loggedUser, {
-                    withCredentials:true
+                    withCredentials: true
                 })
                     .then(res => {
-                    console.log(res.data);
-                })
+                        console.log(res.data);
+                    })
             }
             setLoading(false)
         })
         return () => {
             unSubscribe()
         }
-    }, [])
+    }, [user?.email])
     const authInfo = {
         user,
         loading,
@@ -74,7 +82,8 @@ const AuthProvider = ({ children }) => {
         signInUser,
         logOut,
         signInWithGoogle,
-        signInWithGithub
+        signInWithGithub,
+        updateUser
     }
     return (
         <>

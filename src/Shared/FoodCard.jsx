@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 
 const FoodCard = ({ product }) => {
-    // const totalCount = useLoaderData();
+    // const totalCount = useLoaderData();f
     // console.log(totalCount);
     const { _id, name, img, category, price } = product;
-  
-  
+
+
     return (
         <>
             <Link to={`/checkOut/${_id}`}>
@@ -29,7 +29,7 @@ const FoodCard = ({ product }) => {
 
                 </div>
             </Link>
-    
+
 
 
         </>

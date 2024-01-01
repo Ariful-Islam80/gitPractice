@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Footer = () => {
@@ -8,7 +9,7 @@ const Footer = () => {
                     <div className="justify-center flex-1 max-w-6xl px-4 py-4 mx-auto lg:py-0">
                         <div className="flex items-center justify-center pb-3 border-b border-gray-300 dark:border-gray-700 lg:justify-between">
                             <div className="hidden mr-12 lg:block">
-                                <span className="text-gray-700 dark:text-gray-400">Get connected with us</span>
+                                <span className="text-gray-700 font-bold dark:text-gray-400">Get connected with us</span>
                             </div>
                             <div className="flex justify-center ">
                                 <a href="#" className="mr-6 text-gray-600 dark:text-gray-400 hover:text-blue-700">
@@ -34,40 +35,21 @@ const Footer = () => {
                             </div>
                         </div>
                         <div className="flex flex-wrap py-10 -mx-3">
-                            <div className="w-full px-4 mb-11 md:w-1/2 lg:w-4/12 lg:mb-0">
-                                <a href="#" className="inline-block mb-4 text-2xl font-bold dark:text-gray-400">Logo</a>
-                                <p className="text-base font-normal leading-6 lg:w-64 dark:text-gray-400">
-                                    Lorem ipsum dor amet Lorem ipsum dor amet Lorem ipsum dor Lorem ipsum dor amet Lorem ipsum
-                                    dor amet Lorem ipsum dor
-                                </p>
-                            </div>
-                            <div className="w-full px-4 md:w-1/4 lg:w-2/12 mb-11 lg:mb-0">
-                                <h2 className="mb-4 text-lg font-bold text-gray-800 dark:text-gray-400">Recent Posts</h2>
-                                <ul>
-                                    <li className="mb-4">
-                                        <a href="#" className="inline-block text-base font-normal dark:text-gray-400">Home</a>
-                                    </li>
-                                    <li className="mb-4">
-                                        <a href="#" className="inline-block text-base font-normal dark:text-gray-400">About
-                                            Us</a>
-                                    </li>
-                                    <li className="mb-4">
-                                        <a href="#" className="inline-block text-base font-normal dark:text-gray-400">Features</a>
-                                    </li>
-                                </ul>
+                            <div className="w-full px-4 mb-11 md:w-1/2 lg:w-4/12 lg:mb-0  flex justify-center items-center">
+                                <img className="w-3/4" src="../../../public/logo.png" alt="LogoImage" />
                             </div>
                             <div className="w-full px-4 mb-11 lg:mb-0 md:w-1/4 lg:w-2/12">
                                 <h2 className="mb-4 text-base font-bold text-gray-800 dark:text-gray-400">Recent Posts</h2>
                                 <ul>
                                     <li className="mb-4">
-                                        <a href="#" className="inline-block text-base font-normal dark:text-gray-400">Home</a>
+                                        <Link to={'/'} className="inline-block text-base font-normal dark:text-gray-400">Home</Link>
                                     </li>
                                     <li className="mb-4">
-                                        <a href="#" className="inline-block text-base font-normal dark:text-gray-400">About
-                                            Us</a>
+                                        <Link to={'/about'} className="inline-block text-base font-normal dark:text-gray-400">About
+                                            Us</Link>
                                     </li>
                                     <li className="mb-4">
-                                        <a href="#" className="inline-block text-base font-normal dark:text-gray-400">Features</a>
+                                        <Link to={'/feature'} className="inline-block text-base font-normal dark:text-gray-400">Features</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -85,7 +67,7 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className="py-6 text-center bg-blue-200 dark:bg-gray-800 dark:text-gray-400">
-                        <span>© Copyright 2022 . All Rights Reserved</span>
+                        <span className="font-bold">&copy; Copyright 2023 . All Rights Reserved</span>
                     </div>
                 </div>
             </section>

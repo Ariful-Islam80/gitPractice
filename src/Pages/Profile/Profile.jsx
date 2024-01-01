@@ -3,49 +3,53 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import { MdDelete } from "react-icons/md";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
-// import { useLoaderData } from "react-router-dom";
+
 
 
 
 const Profile = () => {
+    
     const myCartData = useLoaderData()
     const [refresh, setRefresh] = useState(myCartData);
-    console.log(refresh);
-    console.log(myCartData);
-
-    const handleDelete = (_id) => {
-
-        fetch(`http://localhost:5000/addCart${_id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.deletedCount > 0) {
-                    Swal.fire(
-                        'Deleted!',
-                        'Your Coffee has been deleted.',
-                        'success'
-                    )
-                    const remaining = refresh.filter(items => items._id !== _id);
-                    setRefresh(remaining);
-                }
-            })
-    }
-
+    
+        
     const user = useContext(AuthContext)
-    // console.log(user.email);
+        const handleDelete = (_id) => {
+            
+            fetch(`http://localhost:5000/addCart/${_id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        Swal.fire(
+                            'Deleted!',
+                            'Your food has been deleted.',
+                            'success'
+                        )
+                        const remaining = refresh.filter(items => items._id !== _id);
+                        setRefresh(remaining);
+                    }
+                })
+        }
+    
+      
+
+    
+
     return (
         <>
             <section className="flex items-center bg-stone-200  font-poppins dark:bg-gray-700 ">
                 <div className="justify-center flex-1 px-4 py-6 mx-auto max-w-7xl lg:py-4 md:px-6">
 
                     <div className=" mx-auto mb-4 bg-white rounded-lg shadow-md p-5">
-                        <img className="w-32 h-32 rounded-full mx-auto" src alt="Profile picture" />
-                        <h2 className="text-center text-2xl font-semibold mt-3">{name}</h2>
+                        <img className="w-32 h-32 rounded-full mx-auto" src={user?.user?.photoURL} alt="Profile picture" />
+                        <h2 className="text-center text-2xl font-semibold mt-3">{user?.user?.displayName}</h2>
+                        {/* <p className="text-center text-xl font-semibold mt-3">{user?.user?.email}</p> */}
                     </div>
 
-                    <div className="p-8 bg-gray-50 dark:bg-gray-800">
+                    {myCartData.length > 0 ? <div className="p-8 bg-gray-50 dark:bg-gray-800">
                         <h2 className="mb-8 text-4xl font-bold dark:text-gray-400">Added Product</h2>
 
                         <div className="flex  flex-wrap -mx-4">
@@ -101,7 +105,7 @@ const Profile = () => {
                                             <div className="w-auto px-4 text-right md:w-1/6 lg:w-2/12 ">
                                                 <div className="flex justify-end text-2xl  lg:text-4xl">
                                                     <button onClick={() => handleDelete(items._id)} className="py-4 px-4 text-red-600 text-2xl"><MdDelete /></button>
-                                                    
+
                                                 </div>
                                             </div>
                                         </div>)}
@@ -111,7 +115,7 @@ const Profile = () => {
 
                         </div>
 
-                    </div>
+                    </div> : <h2>Empty data</h2>}
                 </div>
             </section>
 

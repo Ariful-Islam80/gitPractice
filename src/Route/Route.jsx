@@ -8,6 +8,10 @@ import LogIn from "../Pages/LogIn/LogIn";
 import Register from "../Pages/Register/Register";
 import Profile from "../Pages/Profile/Profile";
 import CheckOut from "../Pages/CheckOut/CheckOut";
+import PrivateRoute from "./PrivateRoute";
+import AddProduct from "../Pages/AddProduct/AddProduct";
+import AdminRoute from "./AdminRoute";
+import Features from "../Pages/Features/Features";
 
 
 
@@ -34,7 +38,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/blog',
-                element: <Blog></Blog>
+                element: <PrivateRoute><Blog></Blog></PrivateRoute>
             },
             {
                 path: '/about',
@@ -52,6 +56,14 @@ const Router = createBrowserRouter([
                 path: '/profile',
                 element: <Profile></Profile>,
                 loader: () => fetch('http://localhost:5000/addCart')
+            },
+            {
+                path: '/addProduct',
+                element:<AdminRoute><AddProduct></AddProduct></AdminRoute>
+            },
+            {
+                path: '/feature',
+                element:<Features></Features>
             }
 
         ]
