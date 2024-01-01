@@ -8,35 +8,35 @@ import Swal from "sweetalert2";
 
 
 const Profile = () => {
-    
+
     const myCartData = useLoaderData()
     const [refresh, setRefresh] = useState(myCartData);
-    
-        
-    const user = useContext(AuthContext)
-        const handleDelete = (_id) => {
-            
-            fetch(`http://localhost:5000/addCart/${_id}`, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    if (data.deletedCount > 0) {
-                        Swal.fire(
-                            'Deleted!',
-                            'Your food has been deleted.',
-                            'success'
-                        )
-                        const remaining = refresh.filter(items => items._id !== _id);
-                        setRefresh(remaining);
-                    }
-                })
-        }
-    
-      
 
-    
+
+    const user = useContext(AuthContext)
+    const handleDelete = (_id) => {
+
+        fetch(`http://localhost:5000/addCart/${_id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your food has been deleted.',
+                        'success'
+                    )
+                    const remaining = refresh.filter(items => items._id !== _id);
+                    setRefresh(remaining);
+                }
+            })
+    }
+
+
+
+
 
     return (
         <>
@@ -50,8 +50,10 @@ const Profile = () => {
                     </div>
 
                     {myCartData.length > 0 ? <div className="p-8 bg-gray-50 dark:bg-gray-800">
-                        <h2 className="mb-8 text-4xl font-bold dark:text-gray-400">Added Product</h2>
-
+                        <div className="flex justify-center gap-6 items-center">
+                            <h2 className="mb-8 text-lg md:text-4xl font-bold dark:text-gray-400">My Order Foods</h2>
+                            <h2 className="mb-8 text-lg md:text-4xl font-bold dark:text-gray-400">My Add Foods</h2>
+                        </div>
                         <div className="flex  flex-wrap -mx-4">
                             <div className="w-full px-4 mb-8 xl:mb-0">
                                 <div className="flex flex-wrap items-center mb-6 -mx-4 md:mb-8">
