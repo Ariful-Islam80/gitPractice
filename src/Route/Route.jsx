@@ -15,74 +15,81 @@ import UpdateFoods from "../Pages/UpdateFoods/UpdateFoods";
 import MyOrderFoods from "../Pages/MyOrderFoods/MyOrderFoods";
 import MyAddFoods from "../Pages/MyAddFoods/MyAddFoods";
 
-
-
-
 const Router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <Layout></Layout>,
+    children: [
+      {
         path: "/",
-        element: <Layout></Layout>,
-        children: [
-            {
-                path: '/',
-                element: <Home></Home>
-            },
-            {
-                path: '/foods',
-                element: <Foods></Foods>,
-                loader: () => fetch('http://localhost:5000/foodsCount')
-                
-            }, 
-            {
-                path: '/checkOut/:id',
-                element: <CheckOut></CheckOut>,
-                loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
-            },
-            {
-                path: '/blog',
-                element: <PrivateRoute><Blog></Blog></PrivateRoute>
-            },
-            {
-                path: '/about',
-                element: <About></About>
-            },
-            {
-                path: '/logIn',
-                element: <LogIn></LogIn>
-            },
-            {
-                path: '/register',
-                element: <Register></Register>
-            },
-            {
-                path: '/profile',
-                element: <Profile></Profile>,
-                loader: () => fetch('http://localhost:5000/addCart')
-            },
-            {
-                path: '/addProduct',
-                element:<AddProduct></AddProduct>
-            },
-            {
-                path: 'updateFoods',
-                element: <UpdateFoods></UpdateFoods>,
-                loader: ({ params }) => fetch(`http://localhost:5000/newFoods/${params.id}`)
-            },
-            {
-                path: '/feature',
-                element:<Features></Features>
-            },
-            {
-                path: '/myOrderFoods',
-                element:<MyOrderFoods></MyOrderFoods>
-            },
-            {
-                path: '/myAddFoods',
-                element:<MyAddFoods></MyAddFoods>
-            }
-
-        ]
-    },
+        element: <Home></Home>,
+      },
+      {
+        path: "/foods",
+        element: <Foods></Foods>,
+        loader: () =>
+          fetch("https://bangla-restaurant-server-side.vercel.app/foodsCount"),
+      },
+      {
+        path: "/checkOut/:id",
+        element: <CheckOut></CheckOut>,
+        loader: ({ params }) =>
+          fetch(
+            `https://bangla-restaurant-server-side.vercel.app/foods/${params.id}`
+          ),
+      },
+      {
+        path: "/blog",
+        element: (
+          <PrivateRoute>
+            <Blog></Blog>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/logIn",
+        element: <LogIn></LogIn>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/profile",
+        element: <Profile></Profile>,
+        loader: () =>
+          fetch("https://bangla-restaurant-server-side.vercel.app/addCart"),
+      },
+      {
+        path: "/addProduct",
+        element: <AddProduct></AddProduct>,
+      },
+      {
+        path: "updateFoods",
+        element: <UpdateFoods></UpdateFoods>,
+        loader: ({ params }) =>
+          fetch(
+            `https://bangla-restaurant-server-side.vercel.app/newFoods/${params.id}`
+          ),
+      },
+      {
+        path: "/feature",
+        element: <Features></Features>,
+      },
+      {
+        path: "/myOrderFoods",
+        element: <MyOrderFoods></MyOrderFoods>,
+      },
+      {
+        path: "/myAddFoods",
+        element: <MyAddFoods></MyAddFoods>,
+      },
+    ],
+  },
 ]);
 
 export default Router;
