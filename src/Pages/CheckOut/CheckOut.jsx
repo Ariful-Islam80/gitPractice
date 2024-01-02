@@ -22,7 +22,7 @@ const CheckOut = () => {
       if (result.isConfirmed) {
         addCartData.quantity += 1;
 
-        fetch("https://bangla-restaurant-server-side.vercel.app/newFoods", {
+        fetch("http://localhost:5000/newFoods", {
           method: "POST",
           headers: {
             "content-type": "application/json",

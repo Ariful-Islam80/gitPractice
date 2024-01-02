@@ -8,7 +8,7 @@ const MyOrderFoods = () => {
   const [refresh, setRefresh] = useState(myCartData);
 
   const handleDelete = (_id) => {
-    fetch(`https://bangla-restaurant-server-side.vercel.app/addCart/${_id}`, {
+    fetch(`http://localhost:5000/addCart/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

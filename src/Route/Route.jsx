@@ -28,16 +28,13 @@ const Router = createBrowserRouter([
       {
         path: "/foods",
         element: <Foods></Foods>,
-        loader: () =>
-          fetch("https://bangla-restaurant-server-side.vercel.app/foodsCount"),
+        loader: () => fetch("http://localhost:5000/foodsCount"),
       },
       {
         path: "/checkOut/:id",
         element: <CheckOut></CheckOut>,
         loader: ({ params }) =>
-          fetch(
-            `https://bangla-restaurant-server-side.vercel.app/foods/${params.id}`
-          ),
+          fetch(`http://localhost:5000/foods/${params.id}`),
       },
       {
         path: "/blog",
@@ -62,8 +59,7 @@ const Router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile></Profile>,
-        loader: () =>
-          fetch("https://bangla-restaurant-server-side.vercel.app/addCart"),
+        loader: () => fetch("http://localhost:5000/addCart"),
       },
       {
         path: "/addProduct",
@@ -73,9 +69,7 @@ const Router = createBrowserRouter([
         path: "updateFoods",
         element: <UpdateFoods></UpdateFoods>,
         loader: ({ params }) =>
-          fetch(
-            `https://bangla-restaurant-server-side.vercel.app/newFoods/${params.id}`
-          ),
+          fetch(`http://localhost:5000/newFoods/${params.id}`),
       },
       {
         path: "/feature",
@@ -94,7 +88,7 @@ const Router = createBrowserRouter([
   {
     path: "*",
     element: <ErrorPage></ErrorPage>,
-  }
+  },
 ]);
 
 export default Router;

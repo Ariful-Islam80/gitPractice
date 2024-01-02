@@ -5,6 +5,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 const AddProduct = () => {
   const user = useContext(AuthContext);
   const userEmail = user?.user?.email;
+  
   const handleAddFoods = (ev) => {
     ev.preventDefault();
     const form = ev.target;
@@ -27,7 +28,7 @@ const AddProduct = () => {
       userEmail,
     };
 
-    fetch("https://bangla-restaurant-server-side.vercel.app/foods", {
+    fetch("http://localhost:5000/foods", {
       method: "POST",
       headers: {
         "content-type": "application/json",
