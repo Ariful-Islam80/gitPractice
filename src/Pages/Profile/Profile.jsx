@@ -23,7 +23,7 @@ const Profile = () => {
             <section className="flex items-center bg-stone-200  font-poppins dark:bg-gray-700 ">
                 <div className="justify-center flex-1 px-4 py-6 mx-auto max-w-full lg:py-4 md:px-6">
 
-                    <div className=" mx-auto mb-4 bg-white rounded-lg shadow-md p-5">
+                    <div className=" mx-auto mb-4 bg-secondary-content rounded-lg shadow-md p-5">
                         <img className="w-32 h-32 rounded-full mx-auto" src={user?.user?.photoURL} alt="Profile picture" />
                         <h2 className="text-center text-2xl font-semibold mt-3">{user?.user?.displayName}</h2>
                       

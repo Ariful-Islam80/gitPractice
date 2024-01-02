@@ -14,6 +14,7 @@ import Features from "../Pages/Features/Features";
 import UpdateFoods from "../Pages/UpdateFoods/UpdateFoods";
 import MyOrderFoods from "../Pages/MyOrderFoods/MyOrderFoods";
 import MyAddFoods from "../Pages/MyAddFoods/MyAddFoods";
+import ErrorPage from "../Pages/ErrorPage";
 
 const Router = createBrowserRouter([
   {
@@ -90,6 +91,10 @@ const Router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
+  }
 ]);
 
 export default Router;
