@@ -9,7 +9,7 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     const navItems = <>
 
-        <li className="text-3xl"><Link to="/">Home</Link> </li>
+        <li className="text-3xl dark:text-white"><Link to="/">Home</Link> </li>
         <li className="text-3xl"><Link to="/foods">All Foods</Link></li>
         <li className="text-3xl"><Link to="/blog">Blog</Link></li>
         <li className="text-3xl"> <Link to="/about">About</Link> </li>
@@ -20,7 +20,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="navbar bg-secondary-content rounded-md">
+            <div className="navbar  rounded-md">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -50,7 +50,7 @@ const Navbar = () => {
                         </label>
                           
                         <div>
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[50] p-2 shadow bg-base-100 rounded-box w-52">
+                            <ul tabIndex={0} className="menu menu-sm dropdown-open dropdown-content mt-3 z-[500] p-2 shadow bg-base-100 rounded-box w-52">
                                 <li><Link to='/profile'>Profile</Link></li>
                                 {
                                     user ? <li><Link onClick={logOut} to='/logIn'>LogOut</Link></li> : <li><Link to='/logIn'>LogIn</Link></li>

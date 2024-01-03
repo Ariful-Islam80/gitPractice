@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <>
             <section className="flex flex-col py-6 lg:justify-end font-poppins">
-                <div className="w-full bg-blue-50 pt-11 dark:bg-gray-900 ">
+                <div className="w-full  pt-11 dark:bg-gray-900 ">
                     <div className="justify-center flex-1 max-w-6xl px-4 py-4 mx-auto lg:py-0">
                         <div className="flex items-center justify-center pb-3 border-b border-gray-300 dark:border-gray-700 lg:justify-between">
                             <div className="hidden mr-12 lg:block">

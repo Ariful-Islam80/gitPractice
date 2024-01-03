@@ -50,13 +50,13 @@ const AddProduct = () => {
   };
   return (
     <>
-      <div className="bg-gray-300 min-h-screen px-2 py-4 flex items-center">
+      <div className="min-h-screen px-2 py-4 flex items-center">
         <div className="w-full">
           <h2 className="text-center text-gray-700 font-bold text-2xl uppercase mb-4 mt-4">
             Add Your Foods
           </h2>
-          <div className="bg-white p-10 rounded-lg shadow md:w-3/4 mx-auto lg:w-1/2">
-            <form onSubmit={handleAddFoods}>
+          <div className="p-10 rounded-lg shadow md:w-3/4 mx-auto lg:w-1/2">
+            <form  onSubmit={handleAddFoods}>
               <div className="flex justify-center items-center gap-4 ">
                 <div className="flex-1">
                   <div className="mb-5">
@@ -166,7 +166,7 @@ const AddProduct = () => {
                 />
               </div>
 
-              <button className="block w-full bg-blue-500 text-white font-bold p-4 rounded-lg">
+              <button className="block w-full bg-blue-500 dark:bg-black text-white font-bold p-4 rounded-lg">
                 Add Foods
               </button>
             </form>
