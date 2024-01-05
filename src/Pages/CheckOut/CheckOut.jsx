@@ -173,9 +173,6 @@ const CheckOut = () => {
                       Update
                     </button>
                   </div>
-                  {/* <Link to={`/updateFoods/`} className="w-full flex items-center justify-center gap-2 lg:gap-4  bg-teal-500 dark:bg-gray-600 text-white py-2 px-4 rounded-md font-bold hover:bg-gray-800 dark:hover:bg-gray-700">
-
-                                        Update</Link> */}
                 </div>
               </div>
             </div>

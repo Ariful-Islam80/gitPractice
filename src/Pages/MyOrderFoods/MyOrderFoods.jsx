@@ -1,12 +1,35 @@
-import { useState } from "react";
+import {  useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { MdDelete } from "react-icons/md";
+import Skeleton from "../../Shared/Skeleton";
+import useFetch from "../Hooks/useFetch";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const MyOrderFoods = () => {
-  const myCartData = useLoaderData();
+  const [myCartData, setMyCartData] = useState([])
+  const user = useContext(AuthContext);
   const [refresh, setRefresh] = useState(myCartData);
 
+  // console.log(food, user?.email);
+  useEffect(() => {
+    fetch(`http://localhost:5000/addCart?email=miarif4321@gmail.com`)
+      .then((res) => res.json())
+      .then((data) => {
+        setMyCartData(data);
+      });
+  }, []);
+  const { loading, error } = useFetch();
+  if (loading) {
+    return <Skeleton></Skeleton>;
+  }
+  if (error) {
+    return (
+      <h1 className="text-2xl lg:text-6xl text-center text-red-700">
+        Empty Data
+      </h1>
+    );
+  }
   const handleDelete = (_id) => {
     fetch(`http://localhost:5000/addCart/${_id}`, {
       method: "DELETE",
