@@ -5,10 +5,12 @@ import { useContext } from "react";
 const CheckOut = () => {
   const { user } = useContext(AuthContext);
   const food = useLoaderData();
+  const userEmail = user?.email;
+  console.log(userEmail)
   const { name, img, category, price, country, description } = food;
 
   const handleAddToCart = () => {
-    const addCartData = { name, price, img, quantity: 0 };
+    const addCartData = { name, price, img, quantity: 1, userEmail };
     console.log(addCartData);
     Swal.fire({
       title: "Are you sure?",
@@ -22,7 +24,7 @@ const CheckOut = () => {
       if (result.isConfirmed) {
         addCartData.quantity += 1;
 
-        fetch("http://localhost:5000/newFoods", {
+        fetch("http://localhost:5000/AddCart", {
           method: "POST",
           headers: {
             "content-type": "application/json",

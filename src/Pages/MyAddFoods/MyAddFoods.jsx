@@ -8,13 +8,13 @@ const MyAddFoods = () => {
   const user = useContext(AuthContext);
   const [food, setFood] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/userAddFoods?email=${user?.email}`)
+    fetch(`http://localhost:5000/userAddFoods?email=${user?.user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setFood(data);
       });
-  }, [user?.email]);
-console.log(food,user?.user?.email);
+  }, [user.email, user?.user?.email]);
+  console.log(food, user?.user?.email);
   const { loading, error } = useFetch();
   if (loading) {
     return <Skeleton></Skeleton>;

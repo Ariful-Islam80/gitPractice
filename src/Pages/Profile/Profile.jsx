@@ -9,7 +9,7 @@ import MyOrderFoods from "../MyOrderFoods/MyOrderFoods";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("app");
-  const user = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const handleTabClick = (tabId) => {
     setActiveTab(tabId);
   };
@@ -21,11 +21,11 @@ const Profile = () => {
           <div className=" mx-auto mb-4 rounded-lg shadow-md p-5">
             <img
               className="w-32 h-32 rounded-full mx-auto"
-              src={user?.user?.photoURL}
+              src={user?.photoURL}
               alt="Profile picture"
             />
             <h2 className="text-center text-2xl font-semibold mt-3">
-              {user?.user?.displayName}
+              {user?.displayName}
             </h2>
           </div>
 

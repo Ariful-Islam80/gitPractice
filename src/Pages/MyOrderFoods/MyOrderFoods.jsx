@@ -1,5 +1,4 @@
-import {  useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { MdDelete } from "react-icons/md";
 import Skeleton from "../../Shared/Skeleton";
@@ -7,18 +6,19 @@ import useFetch from "../Hooks/useFetch";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const MyOrderFoods = () => {
-  const [myCartData, setMyCartData] = useState([])
-  const user = useContext(AuthContext);
+  const [myCartData, setMyCartData] = useState([]);
+  const { user } = useContext(AuthContext);
+  const userEmail = user?.email;
   const [refresh, setRefresh] = useState(myCartData);
+  console.log(myCartData);
 
-  // console.log(food, user?.email);
   useEffect(() => {
-    fetch(`http://localhost:5000/addCart?email=miarif4321@gmail.com`)
+    fetch(`http://localhost:5000/addCart?email=${userEmail}`)
       .then((res) => res.json())
       .then((data) => {
         setMyCartData(data);
       });
-  }, []);
+  }, [userEmail]);
   const { loading, error } = useFetch();
   if (loading) {
     return <Skeleton></Skeleton>;
@@ -76,7 +76,7 @@ const MyOrderFoods = () => {
                 </div>
               </div>
               <div className="py-4 mb-8 border-t border-b border-gray-200 dark:border-gray-700">
-                {refresh?.map((items, id) => (
+                {myCartData?.map((items, id) => (
                   <div
                     key={id}
                     className="flex flex-wrap items-center mb-6 -mx-4 md:mb-8"

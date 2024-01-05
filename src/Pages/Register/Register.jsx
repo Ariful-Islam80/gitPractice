@@ -18,7 +18,7 @@ const Register = () => {
         const password = ev.target.password.value;
         const name = ev.target.name.value;
         const photo = ev.target.photo.value;
-        const user = { email, password, name, photo }
+    
         // console.log(name);
         // create user in firebase
 
