@@ -13,7 +13,6 @@ const Profile = () => {
   const handleTabClick = (tabId) => {
     setActiveTab(tabId);
   };
-
   return (
     <>
       <section className="flex items-center bg-stone-200  font-poppins dark:bg-gray-700 ">

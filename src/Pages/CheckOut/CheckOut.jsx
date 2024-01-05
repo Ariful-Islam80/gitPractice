@@ -6,12 +6,10 @@ const CheckOut = () => {
   const { user } = useContext(AuthContext);
   const food = useLoaderData();
   const userEmail = user?.email;
-  console.log(userEmail)
-  const { name, img, category, price, country, description } = food;
+  const { name, img, category, price, country, description ,_id} = food;
 
   const handleAddToCart = () => {
     const addCartData = { name, price, img, quantity: 1, userEmail };
-    console.log(addCartData);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -171,9 +169,9 @@ const CheckOut = () => {
                   </div>
 
                   <div className="w-full px-4 mb-4 lg:mb-0 lg:w-1/2">
-                    <button className="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300">
+                    <Link to={`/updateFoods/${_id}`} className="flex items-center justify-center w-full p-4 text-blue-500 border border-blue-500 rounded-md dark:text-gray-200 dark:border-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-gray-100 dark:bg-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-700 dark:hover:text-gray-300">
                       Update
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

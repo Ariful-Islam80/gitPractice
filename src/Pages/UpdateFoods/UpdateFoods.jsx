@@ -3,11 +3,12 @@ import Swal from "sweetalert2";
 
 const UpdateFoods = () => {
   const updateData = useLoaderData();
-  const { name, image, brandName, price, type, rating, description } =
-    updateData;
+  const { name, img, brandName, price, type, rating, description } = updateData;
+  console.log(updateData.img);
 
   const { id } = useParams();
-  const handleAddCard = (ev) => {
+  console.log(id);
+  const handleUpdateFoods = (ev) => {
     ev.preventDefault();
     const form = ev.target;
 
@@ -19,8 +20,8 @@ const UpdateFoods = () => {
     const rating = form.rating.value;
     const description = form.description.value;
     const Card = { name, image, brandName, price, type, rating, description };
-
-    fetch(`http://localhost:5000/newFoods${id}`, {
+console.log(Card);
+    fetch(`http://localhost:5000/updateFoods/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -48,7 +49,7 @@ const UpdateFoods = () => {
             Updated Foods
           </h2>
           <div className="bg-white p-10 rounded-lg shadow md:w-3/4 mx-auto lg:w-1/2">
-            <form onSubmit={handleAddCard}>
+            <form onSubmit={handleUpdateFoods}>
               <div className="flex justify-center items-center gap-4 ">
                 <div className="flex-1">
                   <div className="mb-5">
@@ -70,7 +71,7 @@ const UpdateFoods = () => {
                     <input
                       type="text"
                       name="photoUrl"
-                      defaultValue={image}
+                      defaultValue={img}
                       placeholder="Enter Your Photo URL"
                       className="border border-gray-300 shadow p-3 w-full rounded mb-"
                     />
