@@ -5,7 +5,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 const AddProduct = () => {
   const user = useContext(AuthContext);
   const userEmail = user?.user?.email;
-  
+
   const handleAddFoods = (ev) => {
     ev.preventDefault();
     const form = ev.target;
@@ -37,7 +37,6 @@ const AddProduct = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "Success",
