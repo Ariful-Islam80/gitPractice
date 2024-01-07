@@ -10,7 +10,6 @@ const MyOrderFoods = () => {
   const { user } = useContext(AuthContext);
   const userEmail = user?.email;
   const [refresh, setRefresh] = useState(myCartData);
-  console.log(myCartData);
 
   useEffect(() => {
     fetch(`http://localhost:5000/addCart?email=${userEmail}`)
@@ -25,9 +24,11 @@ const MyOrderFoods = () => {
   }
   if (error) {
     return (
-      <h1 className="text-2xl lg:text-6xl text-center text-red-700">
+      <div className="flex justify-center items-center h-screen">
+        <h1 className="text-2xl lg:text-6xl text-center text-red-700">
         Empty Data
       </h1>
+      </div>
     );
   }
   const handleDelete = (_id) => {
@@ -48,7 +49,7 @@ const MyOrderFoods = () => {
   return (
     <>
       {myCartData.length > 0 ? (
-        <div className="p-8 bg-gray-50 dark:bg-gray-800">
+        <div className="p-8  dark:bg-gray-800">
           <div className="flex justify-center gap-6 items-center"></div>
           <div className="flex  flex-wrap -mx-4">
             <div className="w-full px-4 mb-8 xl:mb-0">
@@ -120,7 +121,7 @@ const MyOrderFoods = () => {
                         </button>
                         <input
                           type="number"
-                          className="w-12 px-2 py-4 text-center border-0 rounded-md dark:bg-gray-800 bg-gray-50 dark:text-gray-400 md:text-right"
+                          className="w-12 px-2 py-4 text-center border-0 rounded-md dark:bg-gray-800  dark:text-gray-400 md:text-right"
                           placeholder="1"
                         />
                         <button className="py-2 hover:text-gray-700 dark:text-gray-400">

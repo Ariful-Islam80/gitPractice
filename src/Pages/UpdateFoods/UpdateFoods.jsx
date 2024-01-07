@@ -34,7 +34,7 @@ console.log(Card);
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success",
-            text: "Card Added Successfully",
+            text: "Food Update Successfully",
             icon: "success",
             confirmButtonText: "Done",
           });

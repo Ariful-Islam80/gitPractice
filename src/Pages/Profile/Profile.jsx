@@ -13,9 +13,10 @@ const Profile = () => {
   const handleTabClick = (tabId) => {
     setActiveTab(tabId);
   };
+  
   return (
     <>
-      <section className="flex items-center bg-stone-200  font-poppins dark:bg-gray-700 ">
+      <section className="flex items-center   font-poppins dark:bg-gray-700 ">
         <div className="justify-center flex-1 px-4 py-6 mx-auto max-w-full lg:py-4 md:px-6">
           <div className=" mx-auto mb-4 rounded-lg shadow-md p-5">
             <img
@@ -46,14 +47,14 @@ const Profile = () => {
                     aria-selected={activeTab === "app" ? "true" : "false"}
                     aria-controls="app"
                   >
-                    <span className="ml-1 text-lg md:text-4xl">
+                    <span className="ml-1 text-lg md:text-4xl btn btn-info text-white px-3">
                       My Add Foods
                     </span>
                   </Link>
                 </li>
                 <li className="z-30 flex-auto text-center">
-                  <Link
-                    className={`z-30 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-lime-400 bg-inherit ${
+                  <Link 
+                    className={`z-30 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-lime-400 bg-inherit  ${
                       activeTab === "message" ? "bg-blue-600 text-white" : ""
                     }`}
                     data-tab-target=""
@@ -62,7 +63,7 @@ const Profile = () => {
                     aria-selected={activeTab === "message" ? "true" : "false"}
                     aria-controls="message"
                   >
-                    <span className="ml-1 text-lg md:text-4xl">
+                    <span className="ml-1 text-lg md:text-4xl btn btn-info text-white px-3">
                       My Order Foods
                     </span>
                   </Link>
