@@ -74,7 +74,7 @@ const AuthProvider = ({ children }) => {
             withCredentials: true,
           })
           .then((res) => {
-            console.log(res.data);
+            console.log(res.dataa);
           });
       }
       setLoading(false);
