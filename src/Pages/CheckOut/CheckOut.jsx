@@ -22,7 +22,7 @@ const CheckOut = () => {
       if (result.isConfirmed) {
         addCartData.quantity += 1;
 
-        fetch("http://localhost:5000/addCart", {credentials:"include"}, {
+        fetch("http://localhost:5000/addCart", {credentials:'include'},{
           method: "POST",
           headers: {
             "content-type": "application/json",
