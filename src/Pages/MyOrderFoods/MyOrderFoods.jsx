@@ -11,6 +11,7 @@ const MyOrderFoods = () => {
   const userEmail = user?.email;
   const [refresh, setRefresh] = useState(myCartData);
 
+
   useEffect(() => {
     fetch(`http://localhost:5000/addCart?email=${userEmail}`)
       .then((res) => res.json())
@@ -45,7 +46,7 @@ const MyOrderFoods = () => {
         }
       });
   };
-
+console.log();
   return (
     <>
       {myCartData.length > 0 ? (
