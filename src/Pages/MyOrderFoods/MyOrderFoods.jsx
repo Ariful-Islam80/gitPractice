@@ -12,8 +12,9 @@ const MyOrderFoods = () => {
   const [refresh, setRefresh] = useState(myCartData);
 
 
+
   useEffect(() => {
-    fetch(`http://localhost:5000/addCart?email=${userEmail}`)
+    fetch(`http://localhost:5000/addCart?email=${userEmail}`, { credentials: 'include' })
       .then((res) => res.json())
       .then((data) => {
         setMyCartData(data);
@@ -27,8 +28,8 @@ const MyOrderFoods = () => {
     return (
       <div className="flex justify-center items-center h-screen">
         <h1 className="text-2xl lg:text-6xl text-center text-red-700">
-        Empty Data
-      </h1>
+          Empty Data
+        </h1>
       </div>
     );
   }
@@ -41,12 +42,13 @@ const MyOrderFoods = () => {
         console.log(data);
         if (data.deletedCount > 0) {
           Swal.fire("Deleted!", "Your food has been deleted.", "success");
-          const remaining = refresh.filter((items) => items._id !== _id);
+          const remaining = myCartData.filter((items) => items._id !== _id);
+          console.log(_id);
           setRefresh(remaining);
         }
       });
   };
-console.log();
+  console.log(refresh);
   return (
     <>
       {myCartData.length > 0 ? (
