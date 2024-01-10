@@ -9,12 +9,12 @@ const MyOrderFoods = () => {
   const [myCartData, setMyCartData] = useState([]);
   const { user } = useContext(AuthContext);
   const userEmail = user?.email;
-  const [refresh, setRefresh] = useState(myCartData);
-
-
+  // const [refresh, setRefresh] = useState(myCartData);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/addCart?email=${userEmail}`, { credentials: 'include' })
+    fetch(`http://localhost:5000/addCart?email=${userEmail}`, {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => {
         setMyCartData(data);
@@ -43,12 +43,11 @@ const MyOrderFoods = () => {
         if (data.deletedCount > 0) {
           Swal.fire("Deleted!", "Your food has been deleted.", "success");
           const remaining = myCartData.filter((items) => items._id !== _id);
-          console.log(_id);
-          setRefresh(remaining);
+
+          setMyCartData(remaining);
         }
       });
   };
-  console.log(refresh);
   return (
     <>
       {myCartData.length > 0 ? (
