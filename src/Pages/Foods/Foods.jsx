@@ -73,7 +73,7 @@ const Foods = () => {
     );
   }
 
-  // console.log(search);
+ 
   return (
     <>
       <div className="w-4/12 mt-6 px-6 md:px-36">

@@ -39,7 +39,6 @@ const MyOrderFoods = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.deletedCount > 0) {
           Swal.fire("Deleted!", "Your food has been deleted.", "success");
           const remaining = myCartData.filter((items) => items._id !== _id);
