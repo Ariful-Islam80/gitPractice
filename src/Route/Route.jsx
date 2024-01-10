@@ -32,16 +32,13 @@ const Router = createBrowserRouter([
       },
       {
         path: "/checkOut/:id",
-        element: <CheckOut></CheckOut>,
-        loader: ({ params }) =>fetch(`http://localhost:5000/foods/${params.id}`),
+        element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/foods/${params.id}`),
       },
       {
         path: "/blog",
-        element: (
-          <PrivateRoute>
-            <Blog></Blog>
-          </PrivateRoute>
-        ),
+        element: <Blog></Blog>
+
       },
       {
         path: "/about",
@@ -57,28 +54,24 @@ const Router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <Profile></Profile>
+        element: <PrivateRoute><Profile></Profile></PrivateRoute>
       },
       {
         path: "/addProduct",
-        element: <AddProduct></AddProduct>,
+        element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
       },
       {
         path: "/updateFoods/:id",
         element: <UpdateFoods></UpdateFoods>,
-        loader: ({ params }) =>fetch(`http://localhost:5000/foods/${params.id}`),
-      },
-      {
-        path: "/feature",
-        element: <Features></Features>,
+        loader: ({ params }) => fetch(`http://localhost:5000/foods/${params.id}`),
       },
       {
         path: "/myOrderFoods",
-        element: <MyOrderFoods></MyOrderFoods>,
+        element:<PrivateRoute><MyOrderFoods></MyOrderFoods></PrivateRoute>
       },
       {
         path: "/myAddFoods",
-        element: <MyAddFoods></MyAddFoods>,
+        element: <PrivateRoute><MyAddFoods></MyAddFoods></PrivateRoute>
       },
     ],
   },
