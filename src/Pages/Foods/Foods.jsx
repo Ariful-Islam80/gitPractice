@@ -13,17 +13,19 @@ const Foods = () => {
   const [food, setFood] = useState([]);
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
+  const [search, setSearch] = useState("");
   const numberOfPages = Math.ceil(count / itemsPerPage);
+  console.log(search);
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/foods?page=${currentPage}&skip=${itemsPerPage}`
+      `http://localhost:5000/foods?search=${search}&page=${currentPage}&skip=${itemsPerPage}`
     )
       .then((res) => res.json())
       .then((data) => {
         setFood(data);
       });
-  }, [currentPage, itemsPerPage]);
+  }, [currentPage, itemsPerPage, search]);
 
   // one type pagination >>>>>>
 
@@ -54,7 +56,6 @@ const Foods = () => {
     }
   };
 
-  const [search, setSearch] = useState("");
   const { loading, error } = useFetch();
   if (loading) {
     return <Skeleton></Skeleton>;
@@ -66,12 +67,6 @@ const Foods = () => {
       </h1>
     );
   }
-  let filterData = food;
-  if (search !== "") {
-    filterData = food.filter((item) =>
-      item.category.toLowerCase().includes(search.toLowerCase())
-    );
-  }
 
  
   return (
@@ -81,12 +76,12 @@ const Foods = () => {
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-6 md:px-36 py-4 mx-auto">
-        {filterData?.map((product) => (
+        {food?.map((product) => (
           <FoodCard key={product?._id} product={product}></FoodCard>
         ))}
       </div>
 
-      {filterData.length > 0 ? (
+      {food.length > 0 ? (
         <div className="flex justify-center">
           <button
             onClick={handlePreviousPage}
