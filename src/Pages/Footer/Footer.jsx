@@ -48,9 +48,7 @@ const Footer = () => {
                                         <Link to={'/about'} className="inline-block text-base font-normal dark:text-gray-400">About
                                             Us</Link>
                                     </li>
-                                    <li className="mb-4">
-                                        <Link to={'/feature'} className="inline-block text-base font-normal dark:text-gray-400">Features</Link>
-                                    </li>
+                                    
                                 </ul>
                             </div>
                             <div className="w-full px-4 mb-2 lg:mb-0 md:w-1/3 lg:w-4/12">
