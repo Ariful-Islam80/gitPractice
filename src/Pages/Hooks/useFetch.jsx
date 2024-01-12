@@ -8,7 +8,7 @@ const useFetch = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/foods");
+        const response = await axios.get("https://bangla-restaurant-server-side.vercel.app/foods");
         setData(response.data);
       } catch (error) {
         setError(error);

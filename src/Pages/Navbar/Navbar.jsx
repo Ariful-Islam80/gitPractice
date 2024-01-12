@@ -9,7 +9,7 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     const navItems = <>
 
-        <li className="text-3xl dark:text-white"><Link to="/">Home</Link> </li>
+        <li className="text-3xl"><Link to="/">Home</Link> </li>
         <li className="text-3xl"><Link to="/foods">All Foods</Link></li>
         <li className="text-3xl"><Link to="/blog">Blog</Link></li>
         <li className="text-3xl"> <Link to="/about">About</Link> </li>

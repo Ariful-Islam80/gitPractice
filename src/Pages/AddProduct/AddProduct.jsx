@@ -28,7 +28,7 @@ const AddProduct = () => {
       userEmail,
     };
 
-    fetch("http://localhost:5000/foods", {
+    fetch("https://bangla-restaurant-server-side.vercel.app/foods", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -55,7 +55,7 @@ const AddProduct = () => {
             Add Your Foods
           </h2>
           <div className="p-10 rounded-lg shadow md:w-3/4 mx-auto lg:w-1/2">
-            <form  onSubmit={handleAddFoods}>
+            <form onSubmit={handleAddFoods}>
               <div className="flex justify-center items-center gap-4 ">
                 <div className="flex-1">
                   <div className="mb-5">

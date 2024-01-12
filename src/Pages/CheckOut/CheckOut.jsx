@@ -6,7 +6,7 @@ const CheckOut = () => {
   const { user } = useContext(AuthContext);
   const food = useLoaderData();
   const userEmail = user?.email;
-  const { name, img, category, price, country, description ,_id} = food;
+  const { name, img, category, price, country, description, _id } = food;
 
   const handleAddToCart = () => {
     const addCartData = { name, price, img, quantity: 1, userEmail };
@@ -21,8 +21,8 @@ const CheckOut = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         addCartData.quantity += 1;
-
-        fetch("http://localhost:5000/addCart", {credentials:'include'},{
+        console.log(addCartData);
+        fetch("https://bangla-restaurant-server-side.vercel.app/addCart", {
           method: "POST",
           headers: {
             "content-type": "application/json",

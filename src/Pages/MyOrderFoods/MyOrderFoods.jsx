@@ -12,13 +12,14 @@ const MyOrderFoods = () => {
   // const [refresh, setRefresh] = useState(myCartData);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/addCart?email=${userEmail}`, {
+    fetch(`https://bangla-restaurant-server-side.vercel.app/addCart?email=${userEmail}`, {
       credentials: "include",
     })
       .then((res) => res.json())
       .then((data) => {
         setMyCartData(data);
       });
+
   }, [userEmail]);
   const { loading, error } = useFetch();
   if (loading) {
@@ -26,7 +27,7 @@ const MyOrderFoods = () => {
   }
   if (error) {
     return (
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center">
         <h1 className="text-2xl lg:text-6xl text-center text-red-700">
           Empty Data
         </h1>
@@ -34,7 +35,7 @@ const MyOrderFoods = () => {
     );
   }
   const handleDelete = (_id) => {
-    fetch(`http://localhost:5000/addCart/${_id}`, {
+    fetch(`https://bangla-restaurant-server-side.vercel.app/addCart/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
