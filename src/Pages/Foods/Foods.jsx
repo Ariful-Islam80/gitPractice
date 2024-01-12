@@ -15,7 +15,7 @@ const Foods = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
   const numberOfPages = Math.ceil(count / itemsPerPage);
-  console.log(search);
+  // console.log(search);
 
   useEffect(() => {
     fetch(
@@ -68,7 +68,7 @@ const Foods = () => {
     );
   }
 
- 
+
   return (
     <>
       <div className="w-4/12 mt-6 px-6 md:px-36">

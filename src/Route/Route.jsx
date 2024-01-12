@@ -10,7 +10,6 @@ import Profile from "../Pages/Profile/Profile";
 import CheckOut from "../Pages/CheckOut/CheckOut";
 import PrivateRoute from "./PrivateRoute";
 import AddProduct from "../Pages/AddProduct/AddProduct";
-import Features from "../Pages/Features/Features";
 import UpdateFoods from "../Pages/UpdateFoods/UpdateFoods";
 import MyOrderFoods from "../Pages/MyOrderFoods/MyOrderFoods";
 import MyAddFoods from "../Pages/MyAddFoods/MyAddFoods";

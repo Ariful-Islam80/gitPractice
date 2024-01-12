@@ -23,12 +23,8 @@ const About = () => {
                 </div>
 
                 <div className="flex lg:flex-row flex-col justify-between gap-8 pt-12">
-                    <div className="w-full lg:w-5/12 flex flex-col justify-center">
-                        <h1 className="text-3xl lg:text-4xl font-bold leading-9 text-gray-800 pb-4">Our Story</h1>
-                        <p className="font-normal text-base leading-6 text-gray-600 ">
-                            Embark on the culinary journey of Bangla Restaurant, where passion and talent converge to create a remarkable dining experience. Our story is one of collaboration, with a team of dedicated professionals who share a common love for food and hospitality. From our skilled chefs who meticulously craft each dish to our attentive service team that ensures your comfort, every member at Bangla Restaurant plays a vital role in curating moments of culinary delight. Our story is woven with the threads of commitment, creativity, and a genuine desire to elevate your dining experience. Join us as we continue to write the chapters of our gastronomic adventure at Bangla Restaurant.</p>
-                    </div>
-                    <div className="w-full lg:w-8/12 lg:pt-8">
+
+                    <div className="w-full flex-1 lg:w-8/12 lg:pt-8">
                         <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:gap-4 shadow-lg rounded-md">
                             <div className="p-4 pb-6 flex justify-center flex-col items-center">
                                 <img className="md:block hidden" src="https://i.ibb.co/FYTKDG6/Rectangle-118-2.png" alt="Alexa featured Img" />
@@ -52,6 +48,11 @@ const About = () => {
                             </div>
                         </div>
                     </div>
+                    <div className="w-full flex-1 lg:w-5/12 flex flex-col justify-center">
+                        <h1 className="text-3xl lg:text-4xl font-bold leading-9 text-gray-800 pb-4">Our Story</h1>
+                        <p className="font-normal text-base leading-6 text-gray-600 ">
+                            Embark on the culinary journey of Bangla Restaurant, where passion and talent converge to create a remarkable dining experience. Our story is one of collaboration, with a team of dedicated professionals who share a common love for food and hospitality. From our skilled chefs who meticulously craft each dish to our attentive service team that ensures your comfort, every member at Bangla Restaurant plays a vital role in curating moments of culinary delight. Our story is woven with the threads of commitment, creativity, and a genuine desire to elevate your dining experience. Join us as we continue to write the chapters of our gastronomic adventure at Bangla Restaurant.</p>
+                    </div> 
                 </div>
             </div>
 

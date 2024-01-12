@@ -5,6 +5,7 @@ import FoodCard from "../../Shared/FoodCard";
 import useFetch from "../../Pages/Hooks/useFetch";
 import Skeleton from "../../Shared/Skeleton";
 import { useState } from "react";
+import OurFeatures from "../../Pages/OurFeature/OurFeatures";
 
 
 
@@ -39,13 +40,14 @@ const Home = () => {
                     ></FoodCard>)
                 }
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center mb-6">
 
 
                 <Link to='/foods' className="btn btn-outline btn-info w-4/12 text-xl lg:text-2xl "><strong className="">See All</strong></Link>
 
 
             </div>
+            <OurFeatures></OurFeatures>
 
 
         </>
