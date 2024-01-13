@@ -34,7 +34,7 @@ const Blog = () => {
                 <input type="radio" name="my-accordion-2" />
                 <div className="collapse-title text-xl font-medium">
                     <div className="flex justify-center items-center ">
-                    <img className="lg:w-2/4" src="/src/assets/MongoDBvsMySQL_-Architecture.png" alt="mongodb data base image" />
+                    <img className="lg:w-2/4" src="https://i.ibb.co/F4LtJBb/Mongo-DBvs-My-SQL-Architecture.png" alt="mongodb data base image" />
                     </div>
                     <h3 className="text-xl lg:text-3xl">3. Different between Mongodb database vs mySQL database.</h3>
                 </div>
