@@ -7,7 +7,7 @@ const Blog = () => {
                 <input type="radio" name="my-accordion-2" checked="checked" />
                 <div className="collapse-title text-xl font-medium">
                     <div className="flex justify-center items-center">
-                    <img className="lg:w-2/4" src="/src/assets/One-Way and Two-Way Data Binding.webp" alt="data Binding image" />
+                    <img className="lg:w-2/4" src="https://i.ibb.co/4F4J3KP/One-Way-and-Two-Way-Data-Binding.webp" alt="data Binding image" />
                     </div>
                     <h3 className="text-xl lg:text-3xl"><strong>1. What is One way data binding?
                     </strong></h3>
@@ -21,7 +21,7 @@ const Blog = () => {
                 <input type="radio" name="my-accordion-2" />
                 <div className="collapse-title text-xl font-medium">
                     <div className="flex justify-center items-center">
-                    <img className="lg:w-2/4" src="/src/assets/1_y5YLuOKO5XM7MOzve6XsDQ.png" alt="node.js image" />
+                    <img className="lg:w-2/4" src="https://i.ibb.co/hWmnDzH/1-y5-YLu-OKO5-XM7-MOzve6-Xs-DQ.png" alt="node.js image" />
                  </div>
                     <h3 className="text-xl lg:text-3xl">2. What is NPM in node.js?</h3>
                 </div>
