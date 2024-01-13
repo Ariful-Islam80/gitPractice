@@ -27,12 +27,12 @@ const Router = createBrowserRouter([
       {
         path: "/foods",
         element: <Foods></Foods>,
-        loader: () => fetch("https://bangla-restaurant-server-side.vercel.app/foodsCount"),
+        loader: () => fetch("https://restaurant-eight-drab.vercel.app/foodsCount"),
       },
       {
         path: "/checkOut/:id",
         element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-        loader: ({ params }) => fetch(`https://bangla-restaurant-server-side.vercel.app/foods/${params.id}`),
+        loader: ({ params }) => fetch(`https://restaurant-eight-drab.vercel.app/foods/${params.id}`),
       },
       {
         path: "/blog",
@@ -62,7 +62,7 @@ const Router = createBrowserRouter([
       {
         path: "/updateFoods/:id",
         element: <UpdateFoods></UpdateFoods>,
-        loader: ({ params }) => fetch(`https://bangla-restaurant-server-side.vercel.app/foods/${params.id}`),
+        loader: ({ params }) => fetch(`https://restaurant-eight-drab.vercel.app/foods/${params.id}`),
       },
       {
         path: "/myOrderFoods",

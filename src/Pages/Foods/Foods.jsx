@@ -19,7 +19,7 @@ const Foods = () => {
 
   useEffect(() => {
     fetch(
-      `https://bangla-restaurant-server-side.vercel.app/foods?search=${search}&page=${currentPage}&skip=${itemsPerPage}`
+      `https://restaurant-eight-drab.vercel.app/foods?search=${search}&page=${currentPage}&skip=${itemsPerPage}`
     )
       .then((res) => res.json())
       .then((data) => {

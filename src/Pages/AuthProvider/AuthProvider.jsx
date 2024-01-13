@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
       // if user exists then issue a token
       if (currentUser) {
         axios
-          .post("https://bangla-restaurant-server-side.vercel.app/jwt", loggedUser, {
+          .post("https://restaurant-eight-drab.vercel.app/jwt", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {
@@ -70,7 +70,7 @@ const AuthProvider = ({ children }) => {
           });
       } else {
         axios
-          .post("https://bangla-restaurant-server-side.vercel.app/logout", loggedUser, {
+          .post("https://restaurant-eight-drab.vercel.app/logout", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {

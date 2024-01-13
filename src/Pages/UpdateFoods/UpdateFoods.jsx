@@ -21,7 +21,7 @@ const UpdateFoods = () => {
     const description = form.description.value;
     const Card = { name, image, brandName, price, type, rating, description };
     console.log(Card);
-    fetch(`https://bangla-restaurant-server-side.vercel.app/updateFoods/${id}`, {
+    fetch(`https://restaurant-eight-drab.vercel.app/updateFoods/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

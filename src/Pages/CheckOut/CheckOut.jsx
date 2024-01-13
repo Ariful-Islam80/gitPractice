@@ -22,7 +22,7 @@ const CheckOut = () => {
       if (result.isConfirmed) {
         addCartData.quantity += 1;
         console.log(addCartData);
-        fetch("https://bangla-restaurant-server-side.vercel.app/addCart", {
+        fetch("https://restaurant-eight-drab.vercel.app/addCart", {
           method: "POST",
           headers: {
             "content-type": "application/json",

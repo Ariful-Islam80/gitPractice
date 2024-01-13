@@ -12,7 +12,7 @@ const MyOrderFoods = () => {
   // const [refresh, setRefresh] = useState(myCartData);
 
   useEffect(() => {
-    fetch(`https://bangla-restaurant-server-side.vercel.app/addCart?email=${userEmail}`, {
+    fetch(`https://restaurant-eight-drab.vercel.app/addCart?email=${userEmail}`, {
       credentials: "include",
     })
       .then((res) => res.json())
@@ -35,7 +35,7 @@ const MyOrderFoods = () => {
     );
   }
   const handleDelete = (_id) => {
-    fetch(`https://bangla-restaurant-server-side.vercel.app/addCart/${_id}`, {
+    fetch(`https://restaurant-eight-drab.vercel.app/addCart/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

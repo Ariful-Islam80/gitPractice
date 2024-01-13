@@ -28,7 +28,7 @@ const AddProduct = () => {
       userEmail,
     };
 
-    fetch("https://bangla-restaurant-server-side.vercel.app/foods", {
+    fetch("https://restaurant-eight-drab.vercel.app/foods", {
       method: "POST",
       headers: {
         "content-type": "application/json",
