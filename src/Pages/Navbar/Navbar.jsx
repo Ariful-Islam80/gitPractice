@@ -30,7 +30,7 @@ const Navbar = () => {
                             {navItems}
                         </ul>
                     </div>
-                    <Link className="w-20 lg:w-24 -ml-4 h-fit" to='/'><img src="../../../public/logo.png" />
+                    <Link className="w-20 lg:w-24 -ml-4 h-fit" to='/'><img src="https://i.ibb.co/b3XRtkX/logo.png" />
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">

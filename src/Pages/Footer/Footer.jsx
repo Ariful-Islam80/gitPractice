@@ -36,7 +36,7 @@ const Footer = () => {
                         </div>
                         <div className="flex flex-wrap py-10 -mx-3">
                             <div className="w-full px-4 mb-11 md:w-1/2 lg:w-4/12 lg:mb-0  flex justify-center items-center">
-                                <img className="w-3/4" src="../../../public/logo.png" alt="LogoImage" />
+                                <img className="w-3/4" src="https://i.ibb.co/b3XRtkX/logo.png" alt="LogoImage" />
                             </div>
                             <div className="w-full px-4 mb-11 lg:mb-0 md:w-1/4 lg:w-2/12">
                                 <h2 className="mb-4 text-base font-bold text-gray-800 dark:text-gray-400">Recent Posts</h2>
