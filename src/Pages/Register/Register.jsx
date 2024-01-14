@@ -19,7 +19,6 @@ const Register = () => {
         const name = ev.target.name.value;
         const photo = ev.target.photo.value;
     
-        // console.log(name);
         // create user in firebase
 
         // reset error and success

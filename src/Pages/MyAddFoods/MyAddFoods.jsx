@@ -14,7 +14,6 @@ const MyAddFoods = () => {
         setFood(data);
       });
   }, [user.email, user?.user?.email]);
-  console.log(food, user?.user?.email);
   const { loading, error } = useFetch();
   if (loading) {
     return <Skeleton></Skeleton>;

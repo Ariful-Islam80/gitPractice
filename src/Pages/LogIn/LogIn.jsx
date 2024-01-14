@@ -10,8 +10,6 @@ const LogIn = () => {
     const location = useLocation()
     const currentLocation = location?.state || '/'
     const { signInUser, signInWithGoogle,signInWithGithub } = useContext(AuthContext)
-    console.log(signInUser);
-    // console.log(location);
     const [registerError, setRegisterError] = useState('')
     const [registerSuccess, setRegisterSuccess] = useState('')
     // const emailRef = useRef(null);

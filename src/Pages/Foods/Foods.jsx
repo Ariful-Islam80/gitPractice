@@ -9,13 +9,11 @@ import { IoIosArrowForward } from "react-icons/io";
 
 const Foods = () => {
   const { count } = useLoaderData();
-  // console.log(count);
   const [food, setFood] = useState([]);
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
   const numberOfPages = Math.ceil(count / itemsPerPage);
-  // console.log(search);
 
   useEffect(() => {
     fetch(
@@ -36,10 +34,8 @@ const Foods = () => {
   for (let i = 0; i < numberOfPages; i++) {
     pages.push(i);
   }
-  // console.log(pages);
   const handleItemsPerPage = (e) => {
     const value = parseInt(e.target.value);
-    console.log(value);
     setItemsPerPage(value);
     setCurrentPage(1);
   };

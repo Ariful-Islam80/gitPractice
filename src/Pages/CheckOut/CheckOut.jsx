@@ -21,7 +21,6 @@ const CheckOut = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         addCartData.quantity += 1;
-        console.log(addCartData);
         fetch("https://restaurant-eight-drab.vercel.app/addCart", {
           method: "POST",
           headers: {
